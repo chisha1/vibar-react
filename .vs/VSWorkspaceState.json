@@ -6,8 +6,10 @@
     "\\pages",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\Artists",
+    "\\src\\components\\Layout",
     "\\src\\components\\Menu"
   ],
-  "SelectedNode": "\\pages\\_app.js",
+  "SelectedNode": "\\CSS\\main.css",
   "PreviewInSolutionExplorer": false
 }

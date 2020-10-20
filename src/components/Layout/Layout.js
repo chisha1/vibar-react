@@ -5,7 +5,8 @@ import Footer from '../Footer/Footer';
 import styled from 'styled-components'
 
 const LayoutContainer = styled.div`
-  margin: 3px, 4px;
+    padding: 95px 10px 60px;
+    background-image: linear-gradient(135deg, #00ffd9 43%, #00a1ff);
 `
 
 const Layout = ({ children }) => (

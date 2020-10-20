@@ -10,7 +10,7 @@
     "styled-components": "latest"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "latest"
+    "babel-plugin-styled-components": "^1.11.1"
   },
   "scripts": {
     "dev": "next",

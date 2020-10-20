@@ -5,7 +5,10 @@ import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../src/theme';
 
-import '../CSS/Menu/menu.css'
+//CSS
+import '../CSS/Menu/menu.css';
+//import '../CSS/style.css';
+import '../CSS/main.css';
 
 class MyApp extends App {
   componentDidMount() {
