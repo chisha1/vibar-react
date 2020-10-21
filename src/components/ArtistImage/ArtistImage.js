@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Link from 'next/link';
 import { SimpleImg } from 'react-simple-img';
 
 const ArtistImageElement = styled.img`
@@ -13,7 +14,7 @@ const ArtistImageElement = styled.img`
     }
 `
 
-function ArtistImage({ id }) {
+function ArtistImage({ id, name }) {
     return (
         //<SimpleImg
         //    src={`/artists/artist-${id}.jpg`}
@@ -22,7 +23,12 @@ function ArtistImage({ id }) {
         //    //data-isfollowing= { isFollowing? 'true': 'false' }
         ///>
 
-        <ArtistImageElement src={`/artists/artist-${id}.jpg`} />
+
+        <Link href={`/artist?artistId=${id}&name=${name}`}>
+            <a>
+                <ArtistImageElement src={`/artists/artist-${id}.jpg`} />
+            </a>
+        </Link>
     )
 }
 

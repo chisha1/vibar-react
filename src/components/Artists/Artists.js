@@ -1,17 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components'
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
 import ArtistImage from '../ArtistImage/ArtistImage';
-
-const LogoSrc = `/artists/artist-1.jpg`;
-const Logo = styled.img`
-    width: 30px;
-    height: 30px;
-    margin: 15px;
-`;
+import { makeStyles } from '@material-ui/core/styles';
+import ArtistSearchBar from '../ArtistSearchBar/ArtistSearchBar';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -91,21 +85,29 @@ const Artists = () => {
         },
     ];
     const classes = useStyles();
+    const [searchQuery, setSearchQuery] = useState('');
 
     return (
         <div>
-
-            <div className={classes.root}>
+            <ArtistSearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+            <div className={classes.root} style={{ marginTop: '10px' }}>
                 <Grid container spacing={3}
                     direction="row"
                     justify="space-evenly"
                     alignItems="center"
                 >
 
-                    {artists.map(({ id, name, isFollowing }) => (
-                        <Grid item xs={6} sm={3} key={`${id}`}>
+                    {artists
+                        .filter((artist) => {
+                            const targetString = `${artist.name}`.toLowerCase();
+                            return searchQuery.length === 0
+                                ? true
+                                : targetString.includes(searchQuery.toLowerCase());
+                        })
+                        .map((artist) => (
+                        <Grid item xs={6} sm={3} key={artist.id}>
                             <div className="item">
-                                <Artist artistId={`${id}`} name={`${name}`} isFollowing={`${isFollowing}`}/>
+                                <ArtistImage {...artist}/>
                             </div>
                         </Grid>
                     ))}
@@ -115,9 +117,4 @@ const Artists = () => {
     );
 };
 
-function Artist(props) {
-    return <div>
-        <Link href={`/artist?artistId=${props.artistId}&name=${props.name}`}><a><ArtistImage id={`${props.artistId}`} /></a></Link>
-    </div>
-}
 export default Artists;
