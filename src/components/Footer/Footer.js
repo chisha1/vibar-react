@@ -1,11 +1,25 @@
 import React from 'react';
+import styled from 'styled-components'
+
+const FooterLogo = styled.img`
+    height: 43px;
+    margin: 20px;
+`
+const FooterContainer = styled.footer`
+    padding-bottom: 160px;
+    background-color: #1b1b1be3;
+    margin: 20px 0 -25px;
+    bottom: 0;
+    color: white;
+    text-align: center;
+`
 
 const Footer = () => (
-    <div className="bg-gray-200 rounded-md mt-6 p-6 pt-12 pb-12">
-        <b>Silicon Valley Code Camp 2019</b> &nbsp;is in San Jose, California. Join
-    us for our 14th annual weekend event&nbsp;
-        <b>October 19-20, 2019</b>
-    </div>
+    <FooterContainer>
+        <FooterLogo src="/Assets/Images/Logo/Website_Logo_outline_empty.png" />
+        <p>&copy; {`${new Date().getFullYear()}`} - Vibar Music</p> <br />
+        <p>Web Application Created By Chisha</p>
+    </FooterContainer>
 );
 
 export default Footer;

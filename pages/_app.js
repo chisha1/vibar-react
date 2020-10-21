@@ -8,7 +8,7 @@ import theme from '../src/theme';
 //CSS
 import '../CSS/Menu/menu.css';
 //import '../CSS/style.css';
-import '../CSS/main.css';
+//import '../CSS/main.css';
 
 class MyApp extends App {
   componentDidMount() {

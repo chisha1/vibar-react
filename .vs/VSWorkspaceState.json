@@ -7,9 +7,10 @@
     "\\src",
     "\\src\\components",
     "\\src\\components\\Artists",
+    "\\src\\components\\Footer",
     "\\src\\components\\Layout",
     "\\src\\components\\Menu"
   ],
-  "SelectedNode": "\\CSS\\main.css",
+  "SelectedNode": "\\src\\components\\Layout\\Layout.js",
   "PreviewInSolutionExplorer": false
 }

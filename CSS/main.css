@@ -8,18 +8,8 @@ html body {
     }
 
     html body footer {
-        padding-bottom: 160px;
-        background-color: #1b1b1b;
-        margin-bottom: -25px;
-        bottom: 0;
-        color: white;
-        text-align: center;
+        
     }
-
-        html body footer img {
-            height: 43px;
-            margin: 20px;
-        }
 
     html body #homepage-banner {
         background-image: url(https://images.pexels.com/photos/761963/pexels-photo-761963.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);

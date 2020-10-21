@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import styled from 'styled-components'
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -49,6 +50,55 @@ const Artists = () => {
             bio:
                 'Artist bio',
         },
+        {
+            name: 'Drake',
+            id: 3,
+            isFollowing: true,
+            bio:
+                'Artist bio',
+        },
+        {
+            name: 'Ariana Grande',
+            id: 4,
+            isFollowing: true,
+            bio:
+                'Artist bio',
+        },
+        {
+            name: 'Taylor Swift',
+            id: 5,
+            isFollowing: true,
+            bio:
+                'Artist bio',
+        },
+        {
+            name: 'Post Malone',
+            id: 6,
+            isFollowing: true,
+            bio:
+                'Artist bio',
+        },
+        {
+            name: 'DaBaby',
+            id: 7,
+            isFollowing: true,
+            bio:
+                'Artist bio',
+        },
+        {
+            name: 'Eminem',
+            id: 8,
+            isFollowing: true,
+            bio:
+                'Artist bio',
+        },
+        {
+            name: 'Billie Eilish',
+            id: 9,
+            isFollowing: true,
+            bio:
+                'Artist bio',
+        },
     ];
 
     const classes = useStyles();
@@ -65,49 +115,28 @@ const Artists = () => {
 
                     {artists.map(({ id, name, isFollowing }) => (
                         <Grid item xs={6} sm={3} key={`${id}`}>
-                                <div className="item">
-                                    <ArtistImage
-                                        data-id={`${id}`}
-                                        src={`/artists/artist-${id}.jpg`}
-                                        data-isfollowing={isFollowing ? 'true' : 'false'}
-                                    />
-                                        {
-                                            //TODO: image onclick to artist page
-                                        }
+                            <div className="item">
+                                <ArtistImage
+                                    data-id={`${id}`}
+                                    src={`/artists/artist-${id}.jpg`}
+                                    data-isfollowing={isFollowing ? 'true' : 'false'}
+                                    onClick={() => {
+                                        //go to artist page
+                                    }}
+                                />
+                                <Artist artistId={`${id}`} name={`${id}`} isFollowing={`${id}`}/>
                             </div>
                         </Grid>
                     ))}
                 </Grid>
             </div>
-
-            <div className="container">
-                <div className="row">
-                    <div className="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel" data-interval="1000">
-                        <div className="MultiCarousel-inner">
-                            {artists.map(({ id, name, isFollowing }) => (
-                                <div key={ `${id}`} className="item">
-                                    <div className="pad15">
-                                        <img
-                                            data-id={`${id}`}
-                                            src={`/artists/artist-${id}.jpg`}
-                                            style={{ height: 147 }}
-                                            data-isfollowing={isFollowing ? 'true' : 'false'}
-                                        />
-                                        {
-                                            //TODO: image onclick to artist page
-                                        }
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                        {
-                            //<button className="btn btn-primary leftLst"></button>
-                            //<button className="btn btn-primary rightLst"></button>
-                        }
-                    </div>
-                </div>
-            </div>
         </div>
     );
 };
+
+function Artist(props) {
+    return <div>
+        <Link href={`/artist?artistId=${props.artistId}`}><a>{props.artistId}</a></Link>
+    </div>
+}
 export default Artists;

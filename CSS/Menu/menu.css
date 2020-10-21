@@ -8,12 +8,6 @@ html body {
     }
 
     html body footer {
-        padding-bottom: 160px;
-        background-color: #1b1b1b;
-        margin-bottom: -25px;
-        bottom: 0;
-        color: white;
-        text-align: center;
     }
 
         html body footer img {
