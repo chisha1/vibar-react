@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
+import ArtistImage from '../ArtistImage/ArtistImage';
 
 const LogoSrc = `/artists/artist-1.jpg`;
 const Logo = styled.img`
@@ -22,17 +23,6 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.secondary,
     },
 }));
-
-const ArtistImage = styled.img`
-    width: 100%;
-    border-radius: 50%;
-    border: solid rgba(255, 255, 255, 0.6313725490196078);
-    transition: border-color 1s ease;
-    :hover {
-        border: solid #ffffff;
-        transition: border-color 1s ease;
-    }
-`
 
 const Artists = () => {
     const artists = [
@@ -100,7 +90,6 @@ const Artists = () => {
                 'Artist bio',
         },
     ];
-
     const classes = useStyles();
 
     return (
@@ -116,15 +105,7 @@ const Artists = () => {
                     {artists.map(({ id, name, isFollowing }) => (
                         <Grid item xs={6} sm={3} key={`${id}`}>
                             <div className="item">
-                                <ArtistImage
-                                    data-id={`${id}`}
-                                    src={`/artists/artist-${id}.jpg`}
-                                    data-isfollowing={isFollowing ? 'true' : 'false'}
-                                    onClick={() => {
-                                        //go to artist page
-                                    }}
-                                />
-                                <Artist artistId={`${id}`} name={`${id}`} isFollowing={`${id}`}/>
+                                <Artist artistId={`${id}`} name={`${name}`} isFollowing={`${isFollowing}`}/>
                             </div>
                         </Grid>
                     ))}
@@ -136,7 +117,7 @@ const Artists = () => {
 
 function Artist(props) {
     return <div>
-        <Link href={`/artist?artistId=${props.artistId}`}><a>{props.artistId}</a></Link>
+        <Link href={`/artist?artistId=${props.artistId}&name=${props.name}`}><a><ArtistImage id={`${props.artistId}`} /></a></Link>
     </div>
 }
 export default Artists;
