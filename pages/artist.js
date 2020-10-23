@@ -1,10 +1,13 @@
 import { withRouter } from 'next/router';
+import Artist from '../src/components/Artist/Artist';
+import Layout from '../src/components/Layout/Layout';
 
-const Artist = withRouter((props) => {
-    return <div>
-        <h1>Artist ID:{props.router.query.artistId}</h1>
-        <h1>Artist Name:{props.router.query.name}</h1>
-    </div>
+const ArtistComponent = withRouter((props) => {
+    return (
+        <Layout>
+            <Artist {...props}/>
+        </Layout>
+    )
 });
 
-export default Artist;
+export default ArtistComponent;

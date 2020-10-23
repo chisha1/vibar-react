@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CSS",
-    "\\CSS\\Menu",
     "\\pages",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\ArtistImage",
     "\\src\\components\\Artists",
+    "\\src\\components\\ArtistSearchBar",
     "\\src\\components\\Footer",
     "\\src\\components\\Layout",
     "\\src\\components\\Menu"
   ],
-  "SelectedNode": "\\src\\components\\Layout\\Layout.js",
+  "SelectedNode": "\\src\\components\\Footer\\Footer.js",
   "PreviewInSolutionExplorer": false
 }
