@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\pages",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\ArtistImage",
-    "\\src\\components\\Artists",
-    "\\src\\components\\ArtistSearchBar",
+    "\\src\\components\\Artist",
+    "\\src\\components\\ArtistsAlbums",
+    "\\src\\components\\ArtistsSingles",
+    "\\src\\components\\Background",
     "\\src\\components\\Footer",
     "\\src\\components\\Layout",
     "\\src\\components\\Menu"
   ],
-  "SelectedNode": "\\src\\components\\Footer\\Footer.js",
+  "SelectedNode": "\\src\\components\\ArtistImage\\ArtistImage.js",
   "PreviewInSolutionExplorer": false
 }

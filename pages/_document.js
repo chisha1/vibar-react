@@ -1,8 +1,9 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet } from 'styled-components';
 import { ServerStyleSheets } from '@material-ui/styles';
 import theme from '../src/theme';
+import Background from '../src/components/Background/Background';
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -45,7 +46,8 @@ class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
                     />
                 </Head>
-                <body id="vibar-background">
+                <body>
+                    <Background />
                     <Main />
                     <NextScript />
                 </body>

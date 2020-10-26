@@ -6,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../src/theme';
 
 //CSS
+import '../CSS/artist_page.css';
 import '../CSS/Menu/menu.css';
 //import '../CSS/style.css';
 //import '../CSS/main.css';

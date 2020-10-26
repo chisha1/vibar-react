@@ -107,7 +107,7 @@ const Artists = () => {
                         .map((artist) => (
                         <Grid item xs={6} sm={3} key={artist.id}>
                             <div className="item">
-                                <ArtistImage {...artist}/>
+                                    <ArtistImage {...artist} width={'100%'}/>
                             </div>
                         </Grid>
                     ))}
