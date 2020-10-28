@@ -14,16 +14,16 @@ const Title = styled.h1`
 
 export default function Index() {
     return (
-        <Layout>
+        <Layout renderFooter={true}>
             <Container maxWidth="sm">
                 <Title>Home Page Title with styled-components</Title>
                 <Box my={4}>
                     <Typography variant="h4" component="h1" gutterBottom>
                         Next.js v4-beta example
-        </Typography>
+                    </Typography>
                     <Link href="/about" color="secondary">
                         Go to the about page
-        </Link>
+                    </Link>
                 </Box>
             </Container>
         </Layout>

@@ -64,60 +64,10 @@ html body {
         font-size: 30px;
     }
 
-    html body #vibar-background {
-        background-image: linear-gradient(135deg, #00ffd9 43%, #00a1ff);
-        height: 100%;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        z-index: -1;
-    }
-
-    html body .navigation-bar {
-        position: fixed;
-        width: 100%;
-        z-index: 2;
-        top: 0;
-    }
-
         html body .navigation-bar .container {
             display: inline-flex;
         }
-
-            html body .navigation-bar .container #logo-container {
-                width: auto;
-                top: 15px;
-                height: 40px;
-                display: inline-flex;
-            }
-
-                html body .navigation-bar .container #logo-container img {
-                    height: 100%;
-                }
-
-                html body .navigation-bar .container #logo-container .arrow {
-                    width: 10px;
-                    height: 0px;
-                    border-color: #e8e8e8;
-                    border-left: 4px solid transparent;
-                    border-right: 4px solid transparent;
-                    margin: 28px 0 0 13px;
-                }
-
-                    html body .navigation-bar .container #logo-container .arrow.up {
-                        border-bottom: 12px solid #e8e8e8;
-                        transition: border-width 1s ease;
-                    }
-
-                    html body .navigation-bar .container #logo-container .arrow.down {
-                        border-top: 12px solid #ffffff;
-                        transition: border-width 1s ease;
-                    }
-
-            html body .navigation-bar .container .links-container {
-                display: flex;
-                padding: 20px;
-            }
+           
 
                 html body .navigation-bar .container .links-container .login-container {
                     right: 70px;

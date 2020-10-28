@@ -3,7 +3,6 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { ServerStyleSheets } from '@material-ui/styles';
 import theme from '../src/theme';
-import Background from '../src/components/Background/Background';
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -47,7 +46,6 @@ class MyDocument extends Document {
                     />
                 </Head>
                 <body>
-                    <Background />
                     <Main />
                     <NextScript />
                 </body>

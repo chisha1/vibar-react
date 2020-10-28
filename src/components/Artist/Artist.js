@@ -11,6 +11,16 @@ const music = [
         albumName: 'Graduation',
         imageUrl: 'https://upload.wikimedia.org/wikipedia/en/7/70/Graduation_%28album%29.jpg',
         releaseDate: new Date(2007, 9),
+        songs: [
+            {
+                songId: 1,
+                name: 'I Wonder',
+            },
+            {
+                songId: 2,
+                name: 'Flashing Lights'
+            }
+        ]
     },
     {
         albumId: 1,
@@ -18,6 +28,16 @@ const music = [
         albumName: 'Graduation',
         imageUrl: 'https://upload.wikimedia.org/wikipedia/en/7/70/Graduation_%28album%29.jpg',
         releaseDate: new Date(2007, 9),
+        songs: [
+            {
+                songId: 1,
+                name: 'I Wonder',
+            },
+            {
+                songId: 2,
+                name: 'Flashing Lights'
+            }
+        ]
     },
 ]
 
