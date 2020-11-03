@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 //#region CSS
 const NavigationBar = styled.nav`
-    margin-top: 20px;
+    margin-top: 10px;
     position: fixed;
     width: 100%;
     z-index: 2;

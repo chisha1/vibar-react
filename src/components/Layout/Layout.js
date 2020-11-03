@@ -5,9 +5,11 @@ import styled from 'styled-components';
 import Container from '@material-ui/core/Container';
 import Background from '../Background/Background';
 
+//#region CSS
 const LayoutContainer = styled.div`
     margin: 100px 0 60px;
 ` //TODO: background image colour temporarily here
+//#endregion
 
 const Layout = ({ children, renderFooter }) => (
     <LayoutContainer>

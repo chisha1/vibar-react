@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ArtistImage from '../ArtistImage/ArtistImage';
-import ArtistsAlbums from '../ArtistsAlbums/ArtistsAlbums';
+import ArtistContent from '../ArtistContent/ArtistContent';
 import ArtistsSingles from '../ArtistsSingles/ArtistsSingles';
 
 const music = [
@@ -11,36 +11,63 @@ const music = [
         albumName: 'Graduation',
         imageUrl: 'https://upload.wikimedia.org/wikipedia/en/7/70/Graduation_%28album%29.jpg',
         releaseDate: new Date(2007, 9),
+        single: false,
         songs: [
             {
-                songId: 1,
+                id: 1,
                 name: 'I Wonder',
+                savedToLibrary: true,
+                artists: ['Kanye West', 'Travis Scott', 'Chris Brown']
             },
             {
-                songId: 2,
-                name: 'Flashing Lights'
+                id: 2,
+                name: 'Flashing Lights',
+                savedToLibrary: false,
+                artists: ['Kanye West', 'Chisha']
             }
         ]
     },
     {
-        albumId: 1,
+        albumId: 2,
         artistId: 2,
-        albumName: 'Graduation',
+        albumName: 'Graduation 2',
         imageUrl: 'https://upload.wikimedia.org/wikipedia/en/7/70/Graduation_%28album%29.jpg',
         releaseDate: new Date(2007, 9),
+        single: false,
         songs: [
             {
-                songId: 1,
+                id: 3,
                 name: 'I Wonder',
+                savedToLibrary: true,
+                artists: ['Kanye West', 'Chisha']
             },
             {
-                songId: 2,
-                name: 'Flashing Lights'
+                id: 4,
+                name: 'Flashing Lights',
+                savedToLibrary: true,
+                artists: ['Kanye West', 'Chisha']
+            }
+        ]
+    },
+    {
+        albumId: 3,
+        artistId: 2,
+        albumName: 'Gold Digger',
+        imageUrl: 'https://upload.wikimedia.org/wikipedia/en/6/62/Gold_Digger.jpg',
+        releaseDate: new Date(2007, 9),
+        single: true,
+        songs: [
+            {
+                id: 5,
+                name: 'Gold Digger',
+                savedToLibrary: true,
+                artists: ['Kanye West', 'Chisha']
             }
         ]
     },
 ]
 
+//#region CSS
 const ArtistContentContainer = styled.div`
     width: 80%;
     margin: 20px auto;
@@ -48,30 +75,58 @@ const ArtistContentContainer = styled.div`
     margin-bottom: 15%;
     border-radius: 13px;
     background-color: rgba(30, 224, 224, 0.3);
+`;
+
+const ArtistTabDisplayButton = styled.a`
+    color: #585858;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0 20px 0 20px;
+    font-family: 'Open Sans', sans-serif;
+    :hover, &.active {
+        text-decoration: none;
+        border-bottom: solid rgba(255, 255, 255, 0.63137255);
+        border-bottom-width: 4px;
+        padding-bottom: 12px;
+    }
 `
+//#endregion
 
 const Artist = (props) => {
+    const [artistTabDisplay, setArtistTabDisplay] = useState('all');
+
+    function ToggleDisplayTab(option) {
+        switch (option) {
+            case 'all':
+                setArtistTabDisplay('all');
+                break;
+            case 'albums':
+                setArtistTabDisplay('albums');
+                break;
+            case 'singles':
+                setArtistTabDisplay('singles');
+                break;
+            default:
+                null;
+        }
+    }
+
 	return (
         <>
             <div id="header-container">
                 <div id="header">
                     <div id="artist-info">
                         <div id="artist-image">
-                            {
-                                //TODO: change code to use artistImage component here
-                            //<img src={`/artists/artist-${props.id}.jpg`} />
-                            }
                             <ArtistImage {...props} />
-
                         </div>
                         <span id="artist-name-header">{props.name}</span>
                         <a href="#">
                             {
-                                //add following/not-following class logic for span
+                                //TODO: add following/not-following class logic for span
                             }
                             <span id="follow-status" data-artistID="@Model.ArtistID" data-userID="userID" className="following ORnot-following">
                                 {
-                                    //add Following/Follow logic here
+                                    //TODO: add Following/Follow logic here
                                 }
                                 <text>Follow</text>
                             </span>
@@ -79,22 +134,45 @@ const Artist = (props) => {
                     </div>
                     <div className="links-container">
                         <ul>
-                            <li><a className="artist-header-link all" id="all-header-link">All</a></li>
-                            <li><a className="artist-header-link albums" id="albums-header-link">Albums</a></li>
-                            <li><a className="artist-header-link singles" id="singles-header-link">Singles</a></li>
+                            <li>
+                                <ArtistTabDisplayButton className={artistTabDisplay === 'all' && 'active'}
+                                    id="all-tab"
+                                    onClick={()=>ToggleDisplayTab('all')}
+                                >
+                                    All
+                                </ArtistTabDisplayButton>
+                            </li>
+                            <li>
+                                <ArtistTabDisplayButton className={artistTabDisplay === 'albums' && 'active'}
+                                    id="albums-tab"
+                                    onClick={() => ToggleDisplayTab('albums')}
+                                >
+                                    Albums
+                                </ArtistTabDisplayButton>
+                            </li>
+                            <li>
+                                <ArtistTabDisplayButton className={artistTabDisplay === 'singles' && 'active'}
+                                    id="singles-tab"
+                                    onClick={() => ToggleDisplayTab('singles')}
+                                >
+                                    Singles
+                                </ArtistTabDisplayButton>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
                 <ArtistContentContainer>
-                    <ArtistsAlbums albums={music} />
                     <div id="artist-content">
-                        {
-                        //@Html.Action("GetArtistsAlbums", "Artist", new {artistID = Model.ArtistID})
-                        //@Html.Action("GetArtistsSingles", "Artist", new {userID = userID, artistID = Model.ArtistID})
+                        {(artistTabDisplay === 'all' || artistTabDisplay === 'albums') &&
+                            <div id='albums-container'>
+                                <ArtistContent albums={music} contentType={'albums'} />
+                            </div>
                         }
-                        {
-                            //<ArtistsSingles />
+                        {(artistTabDisplay === 'all' || artistTabDisplay === 'singles') &&
+                            <div id='singles-container'>
+                                <ArtistContent albums={music} contentType={'singles'} />
+                            </div>
                         }
                     </div>
                 </ArtistContentContainer>
