@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import styled from 'styled-components'
@@ -65,7 +65,7 @@ const Artists = () => {
 
     const classes = useStyles();
     const [searchQuery, setSearchQuery] = useState('');
-    const [artists, setArtists] = useState([]);
+    //const [artists, setArtists] = useState([]);
 
     const REQUEST_STATUS = {
         LOADING: "loading",
@@ -73,17 +73,47 @@ const Artists = () => {
         ERROR: "error"
     }
 
-    const [status, setStatus] = useState(REQUEST_STATUS.LOADING);
+    const reducer = (state, action) => {
+        switch (action.type) {
+            case 'GET_ALL_SUCCESS':
+                return {
+                    ...state,
+                    status: REQUEST_STATUS.SUCCESS,
+                    artists: action.artists,
+                };
+            case 'UPDATE_STATUS':
+                return {
+                    ...state,
+                    status: action.status,
+                };
+        }
+        
+    };
+
+    const [{ artists, status }, dispatch] = useReducer(reducer, {
+        //initial settings for these states
+        //TODO: add in error state into this reducer
+        status: REQUEST_STATUS.LOADING,
+        artists: [],
+    });
+
+    //const [status, setStatus] = useState(REQUEST_STATUS.LOADING);
     const [error, setError] = useState({});
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("http://localhost:4000/artists");
-                setArtists(response.data);
-                setStatus(REQUEST_STATUS.SUCCESS);
+                dispatch({
+                    artists: response.data,
+                    type: "GET_ALL_SUCCESS"
+                });
             } catch (e) {
-                setStatus(REQUEST_STATUS.ERROR);
+                console.log('Loading data error::', e)
+                dispatch({
+                    status: REQUEST_STATUS.ERROR,
+                    type: "UPDATE_STATUS"
+                });
                 setError(e);
             }
         }
