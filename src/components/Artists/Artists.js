@@ -7,6 +7,14 @@ import Paper from '@material-ui/core/Paper';
 import ArtistImage from '../ArtistImage/ArtistImage';
 import { makeStyles } from '@material-ui/core/styles';
 import ArtistSearchBar from '../ArtistSearchBar/ArtistSearchBar';
+import requestReducer, { REQUEST_STATUS } from '../../reducers/request';
+
+import {
+    GET_ALL_SUCCESS,
+    GET_ALL_FAILURE,
+    PUT_SUCCESS,
+    PUT_FAILURE
+} from '../../actions/RequestActions';
 
 //#region CSS
 const useStyles = makeStyles((theme) => ({
@@ -39,80 +47,49 @@ const ArtistContainer = styled.div`
 //#endregion
 
 const Artists = () => {
-    
-
-    //#region Functions
-    function toggleArtistFollow(artistRec) {
-        return {
-            ...artistRec,
-            following: !artistRec.following,
-        }
-    }
-
-    async function followingToggleHandler(artistRec) {
-        const toggledArtistRec = toggleArtistFollow(artistRec); //store following toggled artist
-        const artistIndex = artists.map((artist) => artist.id).indexOf(artistRec.id); //get index of artist from artists list
+    const followingToggleHandler = async (artistRec) => {
         try {
-            await axios.put(`http://localhost:4000/artists/$${artistRec.id}`, toggledArtistRec)
-            setArtists //create new arra of artists, setting the state
-                ([...artists.slice(0, artistIndex), toggledArtistRec, ...artists.slice(artistIndex + 1)]);
+            const toggledArtistRec = {
+                ...artistRec,
+                following: !artistRec.following,
+            };
+            console.log(artistRec);
+            await axios.put(`http://localhost:4000/artists/${artistRec.id}`, toggledArtistRec);
+            dispatch({
+                type: PUT_SUCCESS,
+                record: toggledArtistRec,
+            });
         } catch (e) {
-            setStatus(REQUEST_STATUS.ERROR);
-            setError(e);
+            dispatch({
+                type: PUT_FAILURE,
+                record: e,
+            });
         }
     }
     //#endregion
 
     const classes = useStyles();
     const [searchQuery, setSearchQuery] = useState('');
-    //const [artists, setArtists] = useState([]);
 
-    const REQUEST_STATUS = {
-        LOADING: "loading",
-        SUCCESS: "success",
-        ERROR: "error"
-    }
-
-    const reducer = (state, action) => {
-        switch (action.type) {
-            case 'GET_ALL_SUCCESS':
-                return {
-                    ...state,
-                    status: REQUEST_STATUS.SUCCESS,
-                    artists: action.artists,
-                };
-            case 'UPDATE_STATUS':
-                return {
-                    ...state,
-                    status: action.status,
-                };
-        }
-        
-    };
-
-    const [{ artists, status }, dispatch] = useReducer(reducer, {
-        //initial settings for these states
-        //TODO: add in error state into this reducer
+    const [{ records: artists, status, error }, dispatch] = useReducer(requestReducer, {
+        records: [],
         status: REQUEST_STATUS.LOADING,
-        artists: [],
+        error: null,
     });
-
-    //const [status, setStatus] = useState(REQUEST_STATUS.LOADING);
-    const [error, setError] = useState({});
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("http://localhost:4000/artists");
                 dispatch({
-                    artists: response.data,
-                    type: "GET_ALL_SUCCESS"
+                    type: GET_ALL_SUCCESS,
+                    records: response.data
                 });
             } catch (e) {
                 console.log('Loading data error::', e)
                 dispatch({
-                    status: REQUEST_STATUS.ERROR,
-                    type: "UPDATE_STATUS"
+                    type: GET_ALL_FAILURE,
+                    error: e,
                 });
                 setError(e);
             }

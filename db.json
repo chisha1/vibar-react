@@ -3,7 +3,7 @@
     {
       "name": "Travis Scott",
       "id": 1,
-      "following": false,
+      "following": true,
       "bio": "Artist bio"
     },
     {
@@ -27,7 +27,7 @@
     {
       "name": "Taylor Swift",
       "id": 5,
-      "following": true,
+      "following": false,
       "bio": "Artist bio"
     },
     {
@@ -45,7 +45,7 @@
     {
       "name": "Eminem",
       "id": 8,
-      "following": true,
+      "following": false,
       "bio": "Artist bio"
     },
     {
