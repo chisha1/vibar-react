@@ -1,20 +1,14 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import ArtistImage from '../ArtistImage/ArtistImage';
 import { makeStyles } from '@material-ui/core/styles';
 import ArtistSearchBar from '../ArtistSearchBar/ArtistSearchBar';
-import requestReducer, { REQUEST_STATUS } from '../../reducers/request';
-
-import {
-    GET_ALL_SUCCESS,
-    GET_ALL_FAILURE,
-    PUT_SUCCESS,
-    PUT_FAILURE
-} from '../../actions/RequestActions';
+import withRequest from '../HOC/withRequest';
+import { REQUEST_STATUS } from '../../reducers/request';
 
 //#region CSS
 const useStyles = makeStyles((theme) => ({
@@ -46,56 +40,16 @@ const ArtistContainer = styled.div`
 `
 //#endregion
 
-const Artists = () => {
+const Artists = ({ records: artists, status, error, put }) => {
     const followingToggleHandler = async (artistRec) => {
-        try {
-            const toggledArtistRec = {
-                ...artistRec,
-                following: !artistRec.following,
-            };
-            console.log(artistRec);
-            await axios.put(`http://localhost:4000/artists/${artistRec.id}`, toggledArtistRec);
-            dispatch({
-                type: PUT_SUCCESS,
-                record: toggledArtistRec,
-            });
-        } catch (e) {
-            dispatch({
-                type: PUT_FAILURE,
-                record: e,
-            });
-        }
+        put({
+            ...artistRec,
+            following: !artistRec.following
+        })
     }
-    //#endregion
 
     const classes = useStyles();
     const [searchQuery, setSearchQuery] = useState('');
-
-    const [{ records: artists, status, error }, dispatch] = useReducer(requestReducer, {
-        records: [],
-        status: REQUEST_STATUS.LOADING,
-        error: null,
-    });
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get("http://localhost:4000/artists");
-                dispatch({
-                    type: GET_ALL_SUCCESS,
-                    records: response.data
-                });
-            } catch (e) {
-                console.log('Loading data error::', e)
-                dispatch({
-                    type: GET_ALL_FAILURE,
-                    error: e,
-                });
-                setError(e);
-            }
-        }
-        fetchData();
-    }, [])
 
     const success = status === REQUEST_STATUS.SUCCESS;
     const isLoading = status === REQUEST_STATUS.LOADING;
@@ -145,4 +99,4 @@ const Artists = () => {
     );
 };
 
-export default Artists;
+export default withRequest('http://localhost:4000', 'artists')(Artists);
