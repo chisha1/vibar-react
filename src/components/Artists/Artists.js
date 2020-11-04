@@ -7,6 +7,7 @@ import ArtistImage from '../ArtistImage/ArtistImage';
 import { makeStyles } from '@material-ui/core/styles';
 import ArtistSearchBar from '../ArtistSearchBar/ArtistSearchBar';
 
+//#region CSS
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
@@ -18,74 +19,108 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+const FollowIndicator = styled.div`
+    height: 20px;
+    width: 20px;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    border-radius: 50%;
+    background-color: white;
+    &.active {
+        background-color: green;
+    }
+`;
+
+const ArtistContainer = styled.div`
+    position: relative;
+`
+//#endregion
+
 const Artists = () => {
-    const artists = [
+    const artistsArray = [
         {
             name: 'Travis Scott',
             id: 1,
-            isFollowing: false,
+            following: false,
             bio:
                 'Artist bio',
         },
         {
             name: 'Kanye West',
             id: 2,
-            isFollowing: true,
+            following: true,
             bio:
                 'Artist bio',
         },
         {
             name: 'Drake',
             id: 3,
-            isFollowing: true,
+            following: true,
             bio:
                 'Artist bio',
         },
         {
             name: 'Ariana Grande',
             id: 4,
-            isFollowing: true,
+            following: true,
             bio:
                 'Artist bio',
         },
         {
             name: 'Taylor Swift',
             id: 5,
-            isFollowing: true,
+            following: true,
             bio:
                 'Artist bio',
         },
         {
             name: 'Post Malone',
             id: 6,
-            isFollowing: true,
+            following: true,
             bio:
                 'Artist bio',
         },
         {
             name: 'DaBaby',
             id: 7,
-            isFollowing: true,
+            following: true,
             bio:
                 'Artist bio',
         },
         {
             name: 'Eminem',
             id: 8,
-            isFollowing: true,
+            following: true,
             bio:
                 'Artist bio',
         },
         {
             name: 'Billie Eilish',
             id: 9,
-            isFollowing: true,
+            following: true,
             bio:
                 'Artist bio',
         },
     ];
+
+    function toggleArtistFollow(artistRec) {
+        return {
+            ...artistRec,
+            following: !artistRec.following,
+        }
+    }
+
+    function followingToggleHandler(artistRec) {
+        const toggledArtistRec = toggleArtistFollow(artistRec); //store following toggled artist
+        const artistIndex = artists.map((artist) => artist.id).indexOf(artistRec.id); //get index of artist from artists list
+        setArtists //create new arra of artists, setting the state
+            ([...artists.slice(0, artistIndex), toggledArtistRec, ...artists.slice(artistIndex + 1)]);
+    }
+
     const classes = useStyles();
     const [searchQuery, setSearchQuery] = useState('');
+    const [artists, setArtists] = useState(artistsArray);
 
     return (
         <div>
@@ -106,9 +141,13 @@ const Artists = () => {
                         })
                         .map((artist) => (
                         <Grid item xs={6} sm={3} key={artist.id}>
-                            <div className="item">
-                                    <ArtistImage {...artist} width={'100%'}/>
-                            </div>
+                            <ArtistContainer>
+                                    <FollowIndicator
+                                        className={ artist.following && 'active' }
+                                        onClick={() => followingToggleHandler(artist)}
+                                    />
+                                    <ArtistImage {...artist} width={'100%'} />
+                            </ArtistContainer>
                         </Grid>
                     ))}
                 </Grid>

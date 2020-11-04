@@ -27,7 +27,8 @@ class MyApp extends App {
         return (
             <>
                 <Head>
-                    <title>My page</title>
+                    <title>Vibar</title>
+                    <link rel="icon" href="/Assets/Images/Logo/Website_Logo_outline.png"/>
                     <meta
                         name="viewport"
                         content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"

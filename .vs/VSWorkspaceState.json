@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\CSS",
+    "\\pages",
+    "\\public",
+    "\\public\\Assets",
+    "\\public\\Assets\\Images",
+    "\\public\\Assets\\Images\\Logo",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\Album",
-    "\\src\\components\\ArtistImage",
-    "\\src\\components\\ArtistsAlbums",
-    "\\src\\components\\Layout",
-    "\\src\\components\\Menu",
-    "\\src\\components\\Song",
-    "\\src\\components\\SongArtists"
+    "\\src\\components\\ArtistContent"
   ],
-  "SelectedNode": "\\src\\components\\Album\\Album.js",
+  "SelectedNode": "\\public\\Assets\\Images\\Logo\\Website_Logo-1.2.png",
   "PreviewInSolutionExplorer": false
 }
