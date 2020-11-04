@@ -4,6 +4,7 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/data-grid": "^4.0.0-alpha.8",
+    "axios": "^0.21.0",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
@@ -12,11 +13,13 @@
     "styled-components": "latest"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.11.1"
+    "babel-plugin-styled-components": "^1.11.1",
+    "json-server": "^0.16.2"
   },
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "json-server": "json-server --watch db.json --port 4000 --delay 500"
   }
 }
