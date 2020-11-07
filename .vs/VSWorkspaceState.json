@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\CSS",
-    "\\pages",
-    "\\public",
-    "\\public\\Assets",
-    "\\public\\Assets\\Images",
-    "\\public\\Assets\\Images\\Logo",
-    "\\src",
-    "\\src\\components",
-    "\\src\\components\\ArtistContent"
+    ""
   ],
-  "SelectedNode": "\\public\\Assets\\Images\\Logo\\Website_Logo-1.2.png",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }

@@ -3,14 +3,14 @@
     {
       "name": "Travis Scott",
       "id": 1,
-      "following": true,
+      "following": false,
       "bio": "Artist bio",
       "isFavourite": true
     },
     {
       "name": "Kanye West",
       "id": 2,
-      "following": false,
+      "following": true,
       "bio": "Artist bio",
       "isFavourite": true
     },

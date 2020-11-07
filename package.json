@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-with-material-ui-styled-components",
+  "name": "vibar",
   "version": "1.0.0",
   "dependencies": {
     "@material-ui/core": "latest",
@@ -19,7 +19,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
+    "start": "npm run dev",
     "json-server": "json-server --watch db.json --port 4000 --delay 500"
   }
 }

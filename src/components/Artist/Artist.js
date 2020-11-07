@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ArtistImage from '../ArtistImage/ArtistImage';
 import ArtistContent from '../ArtistContent/ArtistContent';
-import ArtistsSingles from '../ArtistsSingles/ArtistsSingles';
 
 const music = [
     {
@@ -17,32 +16,44 @@ const music = [
                 id: 1,
                 name: 'I Wonder',
                 savedToLibrary: true,
-                artists: ['Kanye West', 'Travis Scott', 'Chris Brown']
+                artists: ['Kanye West']
             },
             {
                 id: 2,
                 name: 'Flashing Lights',
                 savedToLibrary: false,
                 artists: ['Kanye West', 'Chisha']
-            }
+            },
+            {
+                id: 3,
+                name: 'Good Life',
+                savedToLibrary: false,
+                artists: ['Kanye West', 'T-Pain',]
+            },
+            {
+                id: 4,
+                name: 'Stronger',
+                savedToLibrary: false,
+                artists: ['Kanye West', 'Travis Scott', 'Chris Brown']
+            },
         ]
     },
     {
         albumId: 2,
         artistId: 2,
-        albumName: 'Graduation 2',
-        imageUrl: 'https://upload.wikimedia.org/wikipedia/en/7/70/Graduation_%28album%29.jpg',
+        albumName: '808s & Heartbreak',
+        imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/51vJ5RR%2BIPL._AC_SL1400_.jpg',
         releaseDate: new Date(2007, 9),
         single: false,
         songs: [
             {
-                id: 3,
+                id: 5,
                 name: 'I Wonder',
                 savedToLibrary: true,
                 artists: ['Kanye West', 'Chisha']
             },
             {
-                id: 4,
+                id: 6,
                 name: 'Flashing Lights',
                 savedToLibrary: true,
                 artists: ['Kanye West', 'Chisha']
@@ -58,7 +69,7 @@ const music = [
         single: true,
         songs: [
             {
-                id: 5,
+                id: 7,
                 name: 'Gold Digger',
                 savedToLibrary: true,
                 artists: ['Kanye West', 'Chisha']
