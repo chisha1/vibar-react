@@ -2,6 +2,9 @@
 
 # dependencies
 /node_modules
+/vibar-app/node_modules
+/api/node_modules
+/api2/node_modules
 
 # misc
 .DS_Store
@@ -16,4 +19,5 @@ yarn-error.log*
 
 # Next.js
 /.next
+/vibar-app/.next
 /out
