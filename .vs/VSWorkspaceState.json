@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\vibar-app",
+    "\\vibar-app\\pages",
+    "\\vibar-app\\src",
+    "\\vibar-app\\src\\services"
   ],
-  "SelectedNode": "\\README.md",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\vibar-app\\pages\\index.js",
+  "PreviewInSolutionExplorer": true
 }
