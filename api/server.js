@@ -60,7 +60,7 @@ const client = new CosmosClient(options)
 app.use(bodyParser.json());
 
 app.get('/api/todos', async (req, res) => {
-  console.log('api/todos called! sdfsfsefsefsefsef')
+  console.log('api/todos called!')
     //res.json(tasks);
 
     // query to return all children in a family

@@ -19,9 +19,9 @@ export default function Index() {
     useEffect(() => {
         getAllTasks().then(tasks => {
             console.log(tasks);
-            //setPageState(tasks);
+            setPageState(tasks);
         });
-    });
+    }, []); //passing an empty array to useEffect stops the setState loop
 
     return (
         <Layout renderFooter={true}>
