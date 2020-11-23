@@ -1,0 +1,26 @@
+{
+  {
+    "id": "TravisScott.1",
+    "name": "Travis Scott",
+    "following": false,
+    "bio": "Artist bio",
+    "isFavourite": true,
+    "Country": "USA"
+  },
+  {
+    "id": "KanyeWest.2",
+    "name": "Kanye West",
+    "following": true,
+    "bio": "Artist bio",
+    "isFavourite": true,
+    "Country": "USA"
+  },
+  {
+    "id": "Drake.3",
+    "name": "Drake",
+    "following": false,
+    "bio": "Artist bio",
+    "isFavourite": true,
+    "Country": "USA"
+  }
+}
