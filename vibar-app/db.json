@@ -3,7 +3,7 @@
     {
       "name": "Travis Scott",
       "id": 1,
-      "following": false,
+      "following": true,
       "bio": "Artist bio",
       "isFavourite": true
     },

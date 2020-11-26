@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
