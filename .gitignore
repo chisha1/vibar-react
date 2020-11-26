@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /vibar-app/node_modules
+/vibar-app-nextjs/node_modules
 /api/node_modules
 /api2/node_modules
 
@@ -20,4 +21,5 @@ yarn-error.log*
 # Next.js
 /.next
 /vibar-app/.next
+/vibar-app-nextjs/.next
 /out

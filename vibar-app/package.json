@@ -1,30 +1,48 @@
 {
-  "name": "vibar",
-  "version": "1.0.0",
+  "name": "vibar-app",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@azure/cosmos": "^3.9.2",
-    "@material-ui/core": "latest",
-    "@material-ui/data-grid": "^4.0.0-alpha.8",
+    "@material-ui/core": "^4.11.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
-    "get-stdin": "^8.0.0",
-    "http-proxy-middleware": "^1.0.6",
-    "next": "latest",
-    "prop-types": "latest",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
-    "react-native": "^0.63.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
     "react-simple-img": "^2.3.9",
-    "styled-components": "latest"
-  },
-  "devDependencies": {
-    "babel-plugin-styled-components": "^1.11.1",
-    "json-server": "^0.16.2"
+    "styled-components": "^5.2.1",
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "dev": "NODE_ENV='development' node server.js",
-    "build": "next build && next export",
-    "start": "next start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "json-server": "json-server --watch db.json --port 4000 --delay 500"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "json-server": "^0.16.3"
   },
   "proxy": "http://localhost:3080"
 }

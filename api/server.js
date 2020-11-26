@@ -58,9 +58,10 @@ const client = new CosmosClient(options)
 //#endregion
 
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '../vibar-app/build')));
 
-app.get('/api/todos', async (req, res) => {
-  console.log('api/todos called!')
+app.get('/api/users', async (req, res) => {
+  console.log('api/users called!')
     //res.json(tasks);
 
     // query to return all children in a family

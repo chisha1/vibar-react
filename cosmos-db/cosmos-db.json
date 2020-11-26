@@ -1,0 +1,74 @@
+[
+  {
+    "id": "TravisScott.1",
+    "name": "Travis Scott",
+    "following": false,
+    "bio": "Artist bio",
+    "isFavourite": false,
+    "Country": "USA"
+  },
+  {
+    "id": "KanyeWest.2",
+    "name": "Kanye West",
+    "following": false,
+    "bio": "Artist bio",
+    "isFavourite": true,
+    "Country": "USA"
+  },
+  {
+    "id": "Drake.3",
+    "name": "Drake",
+    "following": false,
+    "bio": "Artist bio",
+    "isFavourite": false,
+    "Country": "Canada"
+  },
+  {
+    "id": "ArianaGrande.4",
+    "name": "Ariana Grande",
+    "following": false,
+    "bio": "Artist bio",
+    "isFavourite": false,
+    "Country": "USA"
+  },
+  {
+    "id": "Taylor Swift.5",
+    "name": "Taylor Swift",
+    "following": false,
+    "bio": "Artist bio",
+    "isFavourite": false,
+    "Country": "UK"
+  },
+  {
+    "id": "PostMalone.6",
+    "name": "Post Malone",
+    "following": false,
+    "bio": "Artist bio",
+    "isFavourite": false,
+    "Country": "USA"
+  },
+  {
+    "id": "DaBaby.7",
+    "name": "DaBaby",
+    "following": false,
+    "bio": "Artist bio",
+    "isFavourite": false,
+    "Country": "USA"
+  },
+  {
+    "id": "Eminem.8",
+    "name": "Eminem",
+    "following": false,
+    "bio": "Artist bio",
+    "isFavourite": false,
+    "Country": "USA"
+  },
+  {
+    "id": "BillieEillish.9",
+    "name": "Billie Eillish",
+    "following": false,
+    "bio": "Artist bio",
+    "isFavourite": false,
+    "Country": "USA"
+  }
+]
