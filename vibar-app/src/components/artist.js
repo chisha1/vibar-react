@@ -1,17 +1,15 @@
-import { withRouter } from 'next/router';
-import Artist from '../src/components/Artist/Artist';
-import Layout from '../src/components/Layout/Layout';
+import { useParams } from 'react-router-dom';
+import Artist from './Artist/Artist';
+import Layout from './Layout/Layout';
 
-const ArtistComponent = withRouter((props) => {
-    const ArtistProps = {
-        name: props.router.query.name,
-        id: props.router.query.artistId
-    }
+const ArtistComponent = (props) => {
+    const { artistId } = useParams();
+
     return (
         <Layout>
-            <Artist {...ArtistProps}/>
+            <Artist id={artistId}/>
         </Layout>
     )
-});
+};
 
 export default ArtistComponent;

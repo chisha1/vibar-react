@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Song from '../Song/Song';
 import styled from 'styled-components';
-import { DataGrid } from '@material-ui/data-grid';
+//import { DataGrid } from '@material-ui/data-grid';
 
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';

@@ -1,3 +1,8 @@
+export async function getAllArtists() {
+    const response = await fetch('/api/artists');
+    return await response.json();
+}
+
 export async function getAllUsers() {
     const response = await fetch('/api/users');
     return await response.json();

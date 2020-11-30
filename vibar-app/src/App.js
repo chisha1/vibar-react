@@ -6,6 +6,7 @@ import About from './components/About'
 import Contact from './components/Contact'
 import Background from './components/Background/Background'
 import Artists from './components/artists'
+import Artist from './components/artist'
 
 //TEMP CSS: remove when intergration is done
 //import './App.css';
@@ -17,12 +18,13 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
-                    {/*<Navbar />*/}
+                    {/*<Navbar />*/} { /*render layout component here*/}
                     <Background />
                     <Route exact path='/' component={Home} />
                     <Route path='/about' component={About} />
                     <Route path='/contact' component={Contact} />
                     <Route path='/artists' component={Artists} />
+                    <Route path='/artist/:artistId' component={Artist} />
                 </div>
             </BrowserRouter>
         );

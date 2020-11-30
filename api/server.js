@@ -4,35 +4,6 @@ const app = express(),
       bodyParser = require("body-parser");
       port = 3080;
 
-// place holder for the data
-const tasks = [
-  {
-    id: 1,
-    task: 'task1',
-    assignee: 'assignee1000',
-    status: 'completed'
-  },
-  {
-    id: 2,
-    task: 'task2',
-    assignee: 'assignee1001',
-    status: 'completed'
-  },
-  {
-    id: 3,
-    task: 'task3',
-    assignee: 'assignee1002',
-    status: 'completed'
-  },
-  {
-    id: 4,
-    task: 'task4',
-    assignee: 'assignee1000',
-    status: 'completed'
-  },
-  
-];
-
 //#region Connection
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0" // Avoids DEPTH_ZERO_SELF_SIGNED_CERT error for self-signed certs
 const CosmosClient = require('@azure/cosmos').CosmosClient
@@ -44,7 +15,9 @@ const endpoint = config.endpoint
 const key = config.key
 
 const databaseId = config.database.id
+const vibar_db = config.database.vibar_db
 const containerId = config.container.id
+const vibarArtistsContainer = config.container.vibar_artists
 const partitionKey = { kind: 'Hash', paths: ['/Country'] }
 
 const options = {
@@ -59,6 +32,34 @@ const client = new CosmosClient(options)
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../vibar-app/build')));
+
+app.get('/api/artists', async (req, res) => {
+    console.log('api/artists called!!')
+
+    // query to return all children in a family
+    // Including the partition key value of lastName in the WHERE filter results in a more efficient query
+    const querySpec = {
+        query: 'SELECT c.id, c.name, c.following, c.bio, c.isFavourite, c.Country, c.imageUrl FROM c'
+    }
+
+    try {
+        const { resources: results } = await client
+            .database(vibar_db)
+            .container(vibarArtistsContainer)
+            .items.query(querySpec)
+            .fetchAll()
+        for (var queryResult of results) { //remove for loop
+            var resultString = JSON.stringify(queryResult)
+            console.log(`\tQuery returned ${resultString}\n`);
+            //setPageState(resultString);
+            return res.json(results);
+        }
+    } catch (e) {
+        console.log('Get all artists ERROR:: ', e)
+        return res.json('ERROR:: Failed to get all artists')
+    }
+
+});
 
 app.get('/api/users', async (req, res) => {
   console.log('api/users called!')

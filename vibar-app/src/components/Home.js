@@ -6,7 +6,7 @@ import MuiLink from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import Layout from './Layout/Layout';
-import { getAllUsers } from '../services/ToDoService';
+import { getAllUsers, getAllArtists } from '../services/ArtistService';
 
 const Title = styled.h1`
   color: red;
@@ -22,6 +22,13 @@ export default function Index() {
             setPageState(tasks);
         });
     }, []); //passing an empty array to useEffect stops the setState loop
+
+    useEffect(() => {
+        getAllArtists().then(tasks => {
+            console.log(tasks);
+            //setPageState(tasks);
+        });
+    }, []);
 
     return (
         <Layout renderFooter={true}>

@@ -24,10 +24,10 @@ function ArtistImage(props) {
         //    //data-isfollowing= { isFollowing? 'true': 'false' }
         ///>
 
-
-        <Link to={`/artist?artistId=${props.id}&name=${props.name}`}>
+        //<Link to={`/artist/artistId=${props.id}`}>
+        <Link to={`/artist/${props.id}`}>
             <a>
-                <ArtistImageElement src={`/artists/artist-${props.id}.jpg`} />
+                <ArtistImageElement src={props.imageUrl} />
             </a>
         </Link>
     )

@@ -1,11 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\api",
     "\\vibar-app",
     "\\vibar-app\\src",
     "\\vibar-app\\src\\components",
-    "\\vibar-app\\src\\components\\Menu"
+    "\\vibar-app\\src\\components\\Artist",
+    "\\vibar-app\\src\\components\\ArtistImage",
+    "\\vibar-app\\src\\components\\Artists",
+    "\\vibar-app\\src\\components\\Layout"
   ],
-  "SelectedNode": "\\vibar-app\\src\\components\\Navbar.js",
+  "SelectedNode": "\\vibar-app\\src\\components\\Artist\\Artist.js",
   "PreviewInSolutionExplorer": false
 }

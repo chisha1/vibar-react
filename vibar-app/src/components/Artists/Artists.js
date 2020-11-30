@@ -56,7 +56,7 @@ const Artists = ({ records: artists, status, error, put }) => {
     const hasErrored = status === REQUEST_STATUS.ERROR;
 
     return (
-        <div>
+        <div> { /*Implement error handling*/}
             <ArtistSearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
             <div className={classes.root} style={{ marginTop: '10px' }}>
                 {isLoading && <div>Loading...</div>}
