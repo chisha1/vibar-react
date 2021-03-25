@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /vibar-app/node_modules
+/vibar-app-nextjs/node_modules
 /api/node_modules
 /api2/node_modules
 

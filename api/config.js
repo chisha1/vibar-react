@@ -4,11 +4,13 @@ config.endpoint = 'https://localhost:8081'
 config.key = 'C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=='
 
 config.database = {
-    id: 'db'
+    id: 'db',
+    vibar_db: 'vibar_db'
 }
 
 config.container = {
-    id: 'items'
+    id: 'items',
+    vibar_artists: 'artists'
 }
 
 config.items = {

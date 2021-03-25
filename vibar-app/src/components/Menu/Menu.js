@@ -1,8 +1,9 @@
 import React from 'react';
-import Link from 'next/link';
+import { Link, NavLink } from 'react-router-dom';
 //import '../../../CSS/Menu/menu.css'
 import Container from '@material-ui/core/Container';
 import styled from 'styled-components';
+//TODO: rename to header & name the side menu 'menu'
 
 //#region CSS
 const NavigationBar = styled.nav`
@@ -42,7 +43,7 @@ const ListItem = styled.li`
     display: inline;
 `
 
-const NavLinkText = styled.a`
+const NavLinkText = styled.span`
     color: #585858;
     cursor: pointer;
     font-weight: 600;
@@ -79,14 +80,14 @@ const Menu = () => (
                         <MenuSearchBar placeholder="Search"/>
                     </ListItem>
                     <ListItem>
-                        <Link href="/">
+                        <NavLink to="/">
                             <NavLinkText>Home</NavLinkText>
-                        </Link>
+                        </NavLink>
                     </ListItem>
                     <ListItem>
-                        <Link href="/artists">
+                        <NavLink to="/artists">
                             <NavLinkText>Artists</NavLinkText>
-                        </Link>
+                        </NavLink>
                     </ListItem>
 
                     {

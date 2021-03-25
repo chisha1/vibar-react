@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
-import { SimpleImg } from 'react-simple-img';
+import React from 'react'
+import styled from 'styled-components'
+import { SimpleImg } from 'react-simple-img'
+import { Link } from 'react-router-dom'
 
 function ArtistImage(props) {
 
@@ -24,10 +24,10 @@ function ArtistImage(props) {
         //    //data-isfollowing= { isFollowing? 'true': 'false' }
         ///>
 
-
-        <Link href={`/artist?artistId=${props.id}&name=${props.name}`}>
+        //<Link to={`/artist/artistId=${props.id}`}>
+        <Link to={`/artist/${props.id}`}>
             <a>
-                <ArtistImageElement src={`/artists/artist-${props.id}.jpg`} />
+                <ArtistImageElement src={props.imageUrl} />
             </a>
         </Link>
     )
